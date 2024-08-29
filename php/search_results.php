@@ -16,7 +16,6 @@ if ($search_query) {
     $results = [];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
