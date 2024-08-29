@@ -1,0 +1,203 @@
+body {
+    font-family: 'Georgia', serif; /* Body font */
+    background-color: #FFFFFF; /* White */
+    color: #000000; /* Black */
+    margin: 0;
+    background-image: url('https://picsum.photos/seed/background/1920/1080'); /* Background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
+}
+
+header {
+    background-color:#D6CFC4 ; /* Black header */
+    color: black; /* White */
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.platform-name {
+    margin-left: 10px; /* Space between logo and name */
+    font-size: 50px;
+    font-family:  'Merriweather', serif; /* Heading font */
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: black; /* Change to White */
+    text-decoration: none;
+    font-weight: bold; 
+    font-size: 18px
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0; /* Adds space between the header and search bar */
+}
+
+.search-container input {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d2b48c; /* Tan border */
+}
+
+.search-button,
+.map-button {
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #000000; /* Black */
+    color: #FFFFFF; /* White */
+}
+
+.search-button:hover,
+.map-button:hover {
+    background-color: #333333; /* Darker on hover */
+}
+
+.broad-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.broad-image {
+    width: 80%; /* Adjust width as needed */
+    border-radius: 30px; /* Round corners */
+    object-fit: cover; /* Cover the area */
+}
+
+.container {
+    max-width: 70%;
+    margin: 20px auto;
+}
+
+.categories {
+    margin: 20px 0;
+}
+
+.section-title {
+    text-align: center; /* Center alignment for section titles */
+    font-family: 'Lora', serif; /* Font for section titles */
+    font-size: 35px;
+}
+
+.category-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the buttons and layout */
+}
+
+.scroll-button {
+    background-color: #000000; /* Black */
+    color: #FFFFFF; /* White */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px; /* Space between the buttons and layout */
+}
+
+.category-layout {
+    display: flex;
+    overflow: hidden; /* Disable default scrolling */
+    padding: 20px;
+    border-radius: 10px;
+    /*background-color: rgba(255, 255, 255, 0.8); / Semi-transparent white */
+}
+
+.category-item {
+    flex: 0 0 220px; /* Fixed width for items */
+    margin-right: 10px; /* Margin for spacing */
+    text-align: center;
+    color: #000000; /* Black */
+    font-size: 1.5em;
+    border-radius: 10px;
+    position: relative;
+}
+
+.category-item img {
+    width: 100%;
+    height: 300px; /* Increased height for items */
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.category-item p {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    /*background: rgba(0, 0, 0, 0.5);*/
+}
+
+.key-points {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
+    grid-gap: 20px; /* Adds space between the grid items */
+}
+
+.key-point {
+    text-align: center;
+    border: 1px solid #797272; /* Tan border */
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #E5D4C3; /* Beige background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for a raised effect */
+}
+
+.key-point img.icon {
+    width: 50px;
+    height: 50px;
+}
+
+.about {
+    margin: 20px 0;
+    padding: 5px;
+    border: 1px solid #d2b48c; /* Tan border */
+    border-radius: 20px;
+    background-color:#E5D4C3; /* Beige background */
+    color: #000000; /* Black text color for better visibility */
+}
+
+.footer {
+    width: 100%;
+    background-color: #D6CFC4     ; /* Black */
+    color: #FFFFFF; /* White */
+    text-align: center;
+    padding: 5px;
+    border-radius: 20px;
+}

@@ -1,0 +1,83 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f4f8;
+    color: #333;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #20a4a6;
+}
+h1 {
+    text-align: center;
+    color: #20a4a6;
+}
+.wishlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.wishlist-item:last-child {
+    border-bottom: none;
+}
+.wishlist-item img {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #20a4a6;
+}
+.wishlist-item .details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+.wishlist-item .details h3 {
+    margin: 0;
+    color: #20a4a6;
+}
+.wishlist-item .details p {
+    margin: 5px 0;
+    color: #555;
+}
+.wishlist-item .actions {
+    text-align: right;
+}
+.wishlist-item button {
+    padding: 5px 10px;
+    background-color: #20a4a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+.wishlist-item button:hover {
+    background-color: #188e90;
+}
+/*  .add-book-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #20a4a6;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+.add-book-button:hover {
+    background-color: #188e90;
+}
+    */
