@@ -63,13 +63,17 @@ Book Bazaar is an online marketplace that allows users to buy and sell second-ha
 ### 🏠 Home & Search
 <p align="center">
   <img src="Images/Screenshot 2025-08-26 192545.png" alt="Home Page" width="45%"/>
+</p>
+
+###  Profile
+<p align="center">
+  <img src="Images/Screenshot 2025-08-26 195729.png" alt="Book Details" width="45%"/>
   <img src="Images/Screenshot 2025-08-26 195621.png" alt="Search Page" width="45%"/>
 </p>
 
-### 📖 Book Details & Profile
+###  📖 Book Details 
 <p align="center">
-  <img src="Images/Screenshot 2025-08-26 195729.png" alt="Book Details" width="45%"/>
-  <img src="Images/Screenshot 2025-08-26 195844.png" alt="User Profile" width="45%"/>
+    <img src="Images/Screenshot 2025-08-26 195844.png" alt="User Profile" width="45%"/>
 </p>
 
 ### 🛒 Cart & Checkout
