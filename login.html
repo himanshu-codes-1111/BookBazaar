@@ -10,25 +10,49 @@
 <body>
     <div class="login-container">
         <div class="logo">
-            <img src="temporary-logo.png" alt="Book Bazar Logo">
+            <img src="assets/logo1.jpg" alt="Book Bazar Logo">
         </div>
-        <h2>Login to Book Bazar</h2>
+        <h2>Login to Book Bazaar</h2>
+        
+        <!-- Error message container -->
+        <p id="error-message" style="color: red; text-align: center;"></p>
+        
         <form action="php/login.php" method="POST">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required placeholder="Enter Valid Email">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required placeholder="Enter Valid Password">
             </div>
             <button type="submit">Login</button>
-            <p id="error-message"></p>
         </form>
         <div class="additional-info">
             <p>Don't have an account? <a href="register.html">Register here</a></p>
         </div>
     </div>
-    <script src="js/login.js"></script>
+
+    <script>
+        // Function to get query parameters
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.slice(1);
+            const queryArray = queryString.split('&');
+            
+            queryArray.forEach(param => {
+                const [key, value] = param.split('=');
+                params[decodeURIComponent(key)] = decodeURIComponent(value);
+            });
+            
+            return params;
+        }
+
+        // Check if there's an error in the query parameters
+        const params = getQueryParams();
+        if (params.error) {
+            document.getElementById('error-message').textContent = params.error.replace(/\+/g, ' ');
+        }
+    </script>
 </body>
 </html>

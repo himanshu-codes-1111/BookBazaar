@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 5px; /* Rounded corners for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Headline Styles */
+.headline {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #02343F; /* Dark blue color */
+    margin-bottom: 20px;
+}
+
+/* Info Section Styles */
+.info {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #ffffff; /* White background for each info block */
+}
+
+.info h3 {
+    margin-top: 0;
+    color: #02343F; /* Dark blue color for headers */
+}
+
+/* Order Details Section Styles */
+.order-details {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #ffffff; /* White background for order details */
+}
+
+.order-details h3 {
+    margin-top: 0;
+    color: #02343F; /* Dark blue color for headers */
+}
+
+.order-details .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-details img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin-right: 20px;
+    border-radius: 5px; /* Rounded corners for the book cover */
+}
+
+.order-details .details div {
+    flex: 1;
+}
+
+.order-details p {
+    margin: 5px 0;
+    line-height: 1.5;
+    color: #333; /* Darker text color for better readability */
+}
+
+/* HR Styles */
+hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}

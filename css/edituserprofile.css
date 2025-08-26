@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Makes the image circular */
+    border: 2px solid black;
+    margin-bottom: 10px;
+    object-fit: cover; /* Ensures the image covers the entire circular area */
+}
+
+
+
+.file-upload {
+    margin-top: 10px;
+}
+
+.file-upload-label {
+    padding: 8px 15px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-upload-input {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #37474f;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #00796b;
+    outline: none;
+}
+
+button.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color:black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button.submit-button:hover {
+    background-color: #003c4d;
+}

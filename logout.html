@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/logout.css">
+    <title>Book Details - Book Bazar</title>
+</head>
+<body>
+<!--<main>
+        <section class="book-details">
+            <img src="https://picsum.photos/seed/qbaqzBW3sZ-TP37UmBuES/512" alt="Book Cover" class="book-img">
+            <div class="book-info">
+                <h2>Book Title</h2>
+                <p class="author">Author: Author Name</p>
+                <p class="price">Price: $19.99</p>
+                <p class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fringilla euismod turpis, at cursus nisl. Sed auctor libero ac augue egestas, quis vulputate eros hendrerit.
+                </p>
+            </div>
+            <div class="button-group">
+                <a href="#" class="add-to-cart-button">Add to Cart</a>
+                <a href="#" class="buy-button" onclick="showPopup()">Buy Now</a>
+            </div>
+        </section>
+    </main>-->
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Do you really want to buy this item?</p>
+            <div class="popup-buttons">
+                <button onclick="confirmPurchase()">Yes</button>
+                <button onclick="cancelPurchase()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Code -->
+    <script>
+        // Show the popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        // Confirm purchase
+        function confirmPurchase() {
+            // Redirect to another page (replace 'purchase.html' with the desired URL)
+            window.location.href = 'purchase.html';
+        }
+
+        // Cancel purchase
+        function cancelPurchase() {
+            // Hide the popup and stay on the current page
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -3,37 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bookpage.css">
     <title>Book Details - Book Bazar</title>
-    <link rel="stylesheet" href="css/bookdetails.css">
 </head>
 <body>
     <header>
-        <h1>Book Bazar</h1>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Sell a Book</a>
-            <a href="#">My Profile</a>
-            <a href="#">Contact</a>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="assets/logo1.jpg" alt="Book Bazaar Logo">
+                </div>
+                <h1 class="platform-name">Book Bazaar</h1>
+            </div>
+            <div class="nav-links">
+                <a href="home.html"><i class="fa-solid fa-house-chimney"></i></a>
+                <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i></a>
+                <a href="php/userprofile.php"><i class="fa-solid fa-user"></i></a>
+            </div>
         </nav>
     </header>
-    
     <main>
-        <section class="book-details">
-            <img src="https://via.placeholder.com/600x900" alt="Book Cover" class="book-img">
-            <div class="book-info">
-                <h2>Book Title</h2>
-                <p class="author">Author: Author Name</p>
-                <p class="price">Price: $19.99</p>
-                <p class="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fringilla euismod turpis, at cursus nisl. Sed auctor libero ac augue egestas, quis vulputate eros hendrerit.
-                </p>
-                <a href="#" class="buy-button">Buy Now</a>
-            </div>
-        </section>
+            <section class="book-details">
+                <div class="left-section">
+                    <!-- Book image and thumbnails -->
+                    <img id="main-img" src="https://picsum.photos/seed/qbaqzBW3sZ-TP37UmBuES/512" alt="Book Cover" class="book-img">
+                
+                    <div class="thumbnails">
+                        <img src="https://picsum.photos/seed/qbaqzBW3sZ-TP37UmBuES/512" alt="Book Cover 1" onclick="changeImage(this)">
+                        <img src="https://picsum.photos/seed/bnqyqZn6sftvH4wvT2T3R/512" alt="Book Cover 2" onclick="changeImage(this)">
+                        <img src="https://picsum.photos/seed/7UhVbSfaKd-2wABrWBGXJ/512" alt="Book Cover 3" onclick="changeImage(this)">
+                        <img src="https://picsum.photos/seed/qVvS1Z8yQroFh3dV6X3ks/512" alt="Book Cover 4" onclick="changeImage(this)">
+                    </div>
+                </div>
+                
+                <div class="book-info">
+                    <!-- Book information and buttons -->
+                    <h2>Book Title</h2>
+                    <p class="author">Author: Author Name</p>
+                    <p class="category">Category: Fiction</p>
+                    <p class="condition">Condition: Excelent</p>
+                    <p class="price">Price: $19.99</p>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fringilla euismod turpis, at cursus nisl. Sed auctor libero ac augue egestas, quis vulputate eros hendrerit.
+                    </p>
+                    <div class="button-group">
+                        <a href="#" class="add-to-cart-button">Add to Cart</a>
+                        <a href="#" class="buy-button" onclick="showPopup()">Buy Now</a>
+                    </div>
+                </div>
+            </section>
     </main>
-
-    <footer>
+    
+    <!--<footer>
         <p>&copy; 2024 Book Bazar</p>
-    </footer>
+    </footer>-->
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Do you really want to buy this item?</p>
+            <div class="popup-buttons">
+                <button onclick="confirmPurchase()">Yes</button>
+                <button onclick="cancelPurchase()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script >// Function to change the main image
+        function changeImage(element) {
+            document.getElementById('main-img').src = element.src;
+        }
+
+        // Show the popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        // Confirm purchase
+        function confirmPurchase() {
+            // Redirect to another page (replace 'purchase.html' with the desired URL)
+            window.location.href = 'purchase.html';
+        }
+
+        // Cancel purchase
+        function cancelPurchase() {
+            // Hide the popup and stay on the current page
+            document.getElementById('popup').style.display = 'none';
+        }</script>
 </body>
 </html>

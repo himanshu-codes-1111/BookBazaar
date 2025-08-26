@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell a Book - BookBazaar</title>
+    <link rel="stylesheet" href="css/sellbook.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Sell a Book</h1>
+        <form id="sellBookForm" action="php/sellbook.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Book Title:</label>
+                <input type="text" id="title" name="title" placeholder="Enter book title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" placeholder="Enter author name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter a brief description of the book" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="genre">Genre(Category):</label>
+                <select id="genre" name="genre" required>
+                    <option value="">Select Genre</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non Fiction">Non Fiction</option>
+                    <option value="Self Help">Self Help</option>
+                    <option value="Biography">Biography</option>
+                    <option value="Romantic">Romantic</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Educational">Educational</option>
+                    <option value="Literature">Literature</option>
+                    <option value="Novel">Novel</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="condition">Condition:</label>
+                <select id="condition" name="condition" required>
+                    <option value="">Select Condition</option>
+                    <option value="New">New</option>
+                    <option value="Like New">Like New</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (₹):</label>
+                <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                Latitude: <input type="text" id="latitude" name="latitude" readonly>
+                Longitude: <input type="text" id="longitude" name="longitude" readonly>
+            </div>
+            <div class="form-group">
+                <div id="map" style="width: 100%; height: 300px;"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Images:</label>
+                <label for="front_cover">Front Cover:</label>
+                <input type="file" id="front_cover" name="image1" accept="image/*" required>
+
+                <label for="back_cover">Back Cover:</label>
+                <input type="file" id="back_cover" name="image2" accept="image/*" required>
+
+                <label for="inner_page1">Inner Page 1:</label>
+                <input type="file" id="inner_page1" name="image3" accept="image/*" required>
+
+                <label for="inner_page2">Inner Page 2:</label>
+                <input type="file" id="inner_page2" name="image4" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit" id="submit-button">
+            </div>
+        </form>
+    </div>
+
+    <!-- Order Confirmation Popup -->
+    <div id="confirmation-popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <p>Book listed successfully!</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!-- Include Leaflet Control Geocoder CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([20.5937, 78.9629], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+        }).addTo(map);
+    
+        var marker = null;  // This will hold the single marker
+    
+        // Function to update the latitude and longitude fields
+        function updateLatLng(lat, lng) {
+            document.getElementById('latitude').value = lat;
+            document.getElementById('longitude').value = lng;
+        }
+    
+        // Remove the marker if it already exists
+        function clearMarker() {
+            if (marker) {
+                map.removeLayer(marker);  // Remove previous marker
+            }
+        }
+    
+        // Place a marker at a given location
+        function placeMarker(lat, lng) {
+            clearMarker();  // Clear any existing marker
+            marker = L.marker([lat, lng]).addTo(map);  // Add the new marker
+            updateLatLng(lat, lng);  // Update the latitude and longitude fields
+        }
+    
+        // Event for placing a marker manually (by clicking on the map)
+        map.on('click', function(e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+            placeMarker(lat, lng);  // Place the marker at the clicked location
+        });
+    
+        // Custom Geocoder control using Leaflet Control Geocoder but manually handling results
+        var geocoder = L.Control.geocoder({
+            defaultMarkGeocode: false  // Disable the default marker behavior
+        })
+        .on('markgeocode', function(e) {
+            var lat = e.geocode.center.lat;
+            var lng = e.geocode.center.lng;
+    
+            // Place marker manually when geocoding result is received
+            placeMarker(lat, lng);  // Custom logic to place marker
+    
+            // Optionally adjust the zoom level to the searched location
+            map.setView([lat, lng], 10);
+        })
+        .addTo(map);  // Add the geocoder to the map
+    
+        // Form submission handling
+        document.getElementById('sellBookForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent default form submission
+    
+            var formData = new FormData(this);  // Create FormData object
+    
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                var confirmationPopup = document.getElementById('confirmation-popup');
+                confirmationPopup.style.display = 'flex';  // Show confirmation popup
+                confirmationPopup.querySelector('p').textContent = data.message;  // Set message
+    
+                if (data.status === 'success') {
+                    // Redirect after a delay if successful
+                    setTimeout(function() {
+                        window.location.href = 'php/userprofile.php';  // Adjust path as necessary
+                    }, 2000);  // 2 seconds delay
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');  // Handle errors
+            });
+        });
+    </script>      
+</body>
+</html>

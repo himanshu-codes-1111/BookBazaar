@@ -7,7 +7,7 @@
     <title>Book Bazaar</title>
     <link rel="stylesheet" href="css/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Lora:wght@400&display=swap" rel="stylesheet">
-     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -15,66 +15,108 @@
         <nav>
             <div class="logo-container">
                 <div class="logo">
-                    <img src="https://picsum.photos/seed/ZU1kPU6F75hoqJ_Gxln6l/512" alt="Book Bazaar Logo">
+                    <img src="assets/logo1.jpg" alt="Book Bazaar Logo">
                 </div>
                 <h1 class="platform-name">Book Bazaar</h1>
             </div>
             <div class="nav-links">
-                <a href="home.html">🏠 Home</a>
-                <a href="login.html" target="_blank">🔑 Login</a>
-                <a href="userprofile.html">👤 User Profile</a>
+                <a href="home.html"><i class="fa-solid fa-house-chimney"></i></a>
+                <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i></a>
+                <a href="php/userprofile.php"><i class="fa-solid fa-user"></i></a>
             </div>
         </nav>
     </header>
+
     <div class="search-container">
-        <form action="php/search_results.php" method="GET">
-            <input type="text" name="query" placeholder="Search for book names, authors or genres..." required>
+        <form id="search-form" action="php/search_results.php" method="GET">
+            <input type="text" name="query" id="search-input" placeholder="Search for book names, authors or genres..." required>
             <button type="submit" class="search-button">Search</button>
         </form>
-        <button class="map-button">Map</button>
+        <button class="map-button" id="map-button">Map</button>
     </div>
-    
+
     <div class="broad-image-container">
-        <img src="C:\Users\lokes\OneDrive\Desktop\lokesh home interface\resized_homeimage.jpg" alt="Promotional Banner" class="broad-image">
+        <img src="assets/home_broad_image.jpg" alt="Promotional Banner" class="broad-image">
     </div>
+
     <main>
         <div class="container">
             <section class="categories">
-                <h1 class="section-title">Categories</h1>
+                <h1 class="section-title">Genres</h1>
                 <div class="category-wrapper">
                     <button class="scroll-button left" onclick="scrollCategories(-1)">&#10094;</button>
                     <div class="category-layout">
-                        <div class="category-item category-fiction">
-                            <img src="https://picsum.photos/seed/YxgbN2LhLN941IfcEwd9B/512" alt="Fiction">
-                            <p>Fiction</p>
+                        <div class="category-item category-Fiction">
+                            <a href="php/genre_results.php?genre=Fiction">
+                                <img src="assets/fiction.jpg" alt="Fiction">
+                                <p>Fiction</p>
+                            </a>
                         </div>
-                        <div class="category-item category-non-fiction">
-                            <img src="https://picsum.photos/seed/Mok-Gm1Ce_W3xvFAq10Hc/512" alt="Non-Fiction">
-                            <p>Non-Fiction</p>
+                        <div class="category-item category-Non Fiction">
+                            <a href="php/genre_results.php?genre=Non Fiction">
+                                <img src="assets/non-fiction.jpg" alt="Non Fiction">
+                                <p>Non Fiction</p>
+                            </a>
                         </div>
-                        <div class="category-item category-bestsellers">
-                            <img src="https://picsum.photos/seed/3qPH2ddKrz2HFjvhZS95n/512" alt="Bestsellers">
-                            <p>Bestsellers</p>
+                        <div class="category-item category-Self Help">
+                            <a href="php/genre_results.php?genre=Self Help">
+                                <img src="assets/selfhelp.jpg" alt="Self Help">
+                                <p>Self Help</p>
+                            </a>
                         </div>
-                        <div class="category-item category-new-arrivals">
-                            <img src="https://picsum.photos/seed/tfR4d-dFW62iUV0g-ZBMj/512" alt="New Arrivals">
-                            <p>New Arrivals</p>
+                        <div class="category-item category-Biography">
+                            <a href="php/genre_results.php?genre=Biography">
+                                <img src="assets/biography.jpg" alt="Biography">
+                                <p>Biography</p>
+                            </a>
                         </div>
-                        <div class="category-item category-science">
-                            <img src="https://picsum.photos/seed/kURaJ-e0sT49KedP9FvP6/512" alt="Science">
-                            <p>Science</p>
+                        <div class="category-item category-Romantic">
+                            <a href="php/genre_results.php?genre=Romantic">
+                                <img src="assets/romantic.jpg" alt="Romantic">
+                                <p>Romantic</p>
+                            </a>
                         </div>
-                        <div class="category-item category-history">
-                            <img src="https://picsum.photos/seed/ExRdObAeRVJb1GX1kU0Hn/512" alt="History">
-                            <p>History</p>
+                        <div class="category-item category-Science">
+                            <a href="php/genre_results.php?genre=Science">
+                                <img src="assets/science.jpg" alt="Science">
+                                <p>Science</p>
+                            </a>
                         </div>
-                        <div class="category-item category-biography">
-                            <img src="https://picsum.photos/seed/AGVtRhn7TAUnvbD5Du4ZZ/512" alt="Biography">
-                            <p>Biography</p>
+                        <div class="category-item category-History">
+                            <a href="php/genre_results.php?genre=History">
+                                <img src="assets/history.jpg" alt="History">
+                                <p>History</p>
+                            </a>
                         </div>
-                        <div class="category-item category-fantasy">
-                            <img src="https://picsum.photos/seed/nVZDJrf56mF9YiYY6nycq/512" alt="Fantasy">
-                            <p>Fantasy</p>
+                        <div class="category-item category-Fantasy">
+                            <a href="php/genre_results.php?genre=Fantasy">
+                                <img src="assets/fantacy.jpg" alt="Fantasy">
+                                <p>Fantasy</p>
+                            </a>
+                        </div>
+                        <div class="category-item category-Educational">
+                            <a href="php/genre_results.php?genre=Educational">
+                                <img src="assets/educational.jpg" alt="Educational">
+                                <p>Educational</p>
+                            </a>
+                        </div>
+                        <div class="category-item category-Literature">
+                            <a href="php/genre_results.php?genre=Literature">
+                                <img src="assets/literature.jpg" alt="Literature">
+                                <p>Literature</p>
+                            </a>
+                        </div>
+                        <div class="category-item category-Novel">
+                            <a href="php/genre_results.php?genre=Novel">
+                                <img src="assets/novel.jpg" alt="Novel">
+                                <p>Novel</p>
+                            </a>
+                        </div>
+                        <div class="category-item category-Other">
+                            <a href="php/genre_results.php?genre=Other">
+                                <img src="assets/other.jpg" alt="Other">
+                                <p>Other</p>
+                            </a>
                         </div>
                     </div>
                     <button class="scroll-button right" onclick="scrollCategories(1)">&#10095;</button>
@@ -84,37 +126,68 @@
                 <h1 class="section-title">Why Book Bazaar?</h1>
                 <div class="key-points">
                     <div class="key-point">
-                        <img class="icon" src="https://picsum.photos/seed/X-tk5qOwx1FzLGBsJNYGz/512" alt="Wide Selection">
-                        <h3>Wide Selection of Books</h3>
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <h3>WIDE SELECTION OF BOOKS</h3>
                         <p>Book Bazaar offers an extensive collection of books across various genres, ensuring that readers can find titles that cater to their interests, whether it's fiction, non-fiction, academic, or self-help.</p>
                     </div>
                     <div class="key-point">
-                        <img class="icon" src="https://picsum.photos/seed/0NH4Jf-vPQyEXN49NNXSD/512" alt="Affordable Prices">
-                        <h3>Affordable Pricing</h3>
-                        <p>The platform often features discounted prices, making books accessible to a broader audience. Special sales and promotions allow readers to purchase more books without straining their budgets.
-                        </p>
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                        <h3>AFFORDABLE PRICING</h3>
+                        <p>The platform often features discounted prices, making books accessible to a broader audience. Special sales and promotions allow readers to purchase more books without straining their budgets.</p>
                     </div>
                     <div class="key-point">
-                        <img class="icon" src="https://picsum.photos/seed/KG1ToEBNiOKbtOYwwuUP2/512" alt="Convenient Shopping">
-                        <h3>User-Friendly Experience</h3>
+                        <i class="fa-solid fa-user-group"></i>
+                        <h3>USER-FRIENDLY EXPERIENCE</h3>
                         <p>The website is designed for easy navigation, allowing users to search for specific titles or browse categories effortlessly. Detailed book descriptions and user reviews enhance the shopping experience.</p>
                     </div>
                     <div class="key-point">
-                        <img class="icon" src="https://picsum.photos/seed/BKwZTsoCRSa4mgKaJPEM7/512" alt="Customer Support">
-                        <h3>Convenient Online Shopping</h3>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <h3>CONVENIENT ONLINE SHOPPING</h3>
                         <p>Customers can shop from the comfort of their homes and have books delivered directly to their doorstep. This convenience saves time and effort, especially for busy individuals.</p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
-    <footer class="footer">
-        <section class="about">
-            <h2 class="section-title">About Us</h2>
-            <p style="color: #000000;">Welcome to Book Bazaar, your ultimate destination for discovering new books and authors! We are dedicated to providing a cozy space for book lovers. Explore our collection and find your next favorite read.</p>
-        </section>
-        <!--<p>&copy; 2024 Book Bazaar</p>-->
+
+    <footer>
+        <head>
+            <link rel="stylesheet" href="css/footer.css">
+        </head>
+        <div class="footer-container">
+            <!-- Logo and Tagline -->
+            <div class="footer-logo">
+                <img src="assets/logo1.jpg" alt="Website Logo">
+                <p><b>Book Bazaar : Read More, Spend Less</b></p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="ourmission.html">Our Mission</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="terms&conditions.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: support@bookbazaar.com</p>
+                <p>Phone: +91 876-7043-855</p>
+                <p>Address: Government Polytechnic Nashik, Chehdi(B), Samangaon Road, Nashik-Road, Nashik- 422 101</p>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-legal">
+                <p>© 2024 [BOOK BAZAAR]. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
     <script>
         function scrollCategories(direction) {
             const categoryLayout = document.querySelector('.category-layout');
@@ -124,8 +197,14 @@
                 behavior: 'smooth'
             });
         }
+
+        document.getElementById('map-button').addEventListener('click', function() {
+            const searchInput = document.getElementById('search-input').value;
+            if (searchInput.trim() !== '') {
+                window.location.href = 'php/map_view.php?query=' + encodeURIComponent(searchInput);
+            }
+        });
     </script>
-    
 </body>
 
 </html>

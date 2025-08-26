@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - BookBazaar</title>
+    <link rel="stylesheet" href="css/cart.css">
+
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://picsum.photos/seed/ZU1kPU6F75hoqJ_Gxln6l/512" alt="Book Bazaar Logo">
+                </div>
+                <h1 class="platform-name">Book Bazaar</h1>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">🏠 Home</a>
+                <a onclick="openModal('loginModal')">🔑 Login</a>
+                <a href="userprofile.html">👤 User Profile</a>
+            </div>
+        </nav>
+        
+    </header>
+    <h1 class="title">Your Cart</h1>
+
+    <div class="container">
+        
+        <div class="cart-item">
+            <img src="https://picsum.photos/seed/book1/100/150" alt="Book Cover" class="book-cover">
+            <div class="details">
+                <h3>Book Title 1</h3>
+                <p>Author: John Doe</p>
+                <p>Price: ₹500</p>
+            </div>
+            <div class="remove">
+                <button class="remove-button">Remove</button>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="https://picsum.photos/seed/book2/100/150" alt="Book Cover" class="book-cover">
+            <div class="details">
+                <h3>Book Title 2</h3>
+                <p>Author: Jane Smith</p>
+                <p>Price: ₹300</p>
+            </div>
+            <div class="remove">
+                <button class="remove-button">Remove</button>
+            </div>
+        </div>
+
+        
+
+        <div class="total">
+            <h3 id="total-price">Total Price: ₹800</h3>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.remove-button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const cartItem = event.target.closest('.cart-item');
+                const price = parseInt(cartItem.querySelector('.details p:nth-child(3)').textContent.replace('Price: ₹', ''));
+                cartItem.remove();
+                updateTotalPrice(price);
+            });
+        });
+        
+        function updateTotalPrice(removedPrice) {
+            const totalPriceElement = document.getElementById('total-price');
+            let totalPrice = parseInt(totalPriceElement.textContent.replace('Total Price: ₹', ''));
+            totalPrice -= removedPrice;
+            totalPriceElement.textContent = `Total Price: ₹${totalPrice}`;
+        }
+        
+    </script>
+    
+</body>
+</html>

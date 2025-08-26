@@ -1,43 +1,60 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0edcc;
+    background-image: url('../assets/background.jpg');
     margin: 0;
     padding: 0;
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    backdrop-filter: blur(10px);
 }
 
 .registration-container {
-    max-width: 600px;
-    margin: auto;
+    width: 500px; /* Increased width of the container */
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .logo img {
-    max-width: 150px;
+    max-width: 80px; /* Slightly increased width of the logo */
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
 }
 
 h2 {
     text-align: center;
-    color: #02343f;
+    color: #000000; /* Changed to black */
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 30px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row; /* Align label and input in the same row */
+    align-items: center; /* Center-align items vertically*/
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #02343f;
+    font-weight: bold;
+    color: #333;
+    flex: 0 0 30%; /* Make label a fixed width (30% of the row) */
+    font-family: "lato",sans-serif;
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
-    width: 100%;
-    padding: 8px;
+    width: 350px; /* Increased width of text fields */
+    padding: 10px; /* Slightly increased padding */
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 textarea {
@@ -45,17 +62,19 @@ textarea {
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #02343f;
-    color: #ffffff;
+    width: 445px; /* Set to match the text fields */
+    margin-left: 25px;
+    padding: 12px;
+    background-color: #000000; /* Changed to black */
+    color: #ffffff; /* White text */
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #021e28;
+    background-color: gray;
 }
 
 #error-message {
@@ -65,4 +84,13 @@ button:hover {
 .additional-info {
     text-align: center;
     margin-top: 15px;
+}
+
+.additional-info a {
+    color: blue; /* Changed to black */
+    text-decoration: none;
+}
+
+.additional-info a:hover {
+    text-decoration: underline;
 }

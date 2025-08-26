@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenStreetMap with Search and Marker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <style>
+        #map {
+            height: 90vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <button id="saveButton">Save Book Location</button>
+    <p id="location"></p>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+        var map = L.map('map').setView([20.5937, 78.9629], 5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var marker;
+
+        map.on('click', function(e) {
+            if (marker) {
+                map.removeLayer(marker);
+            }
+            marker = L.marker(e.latlng).addTo(map);
+        });
+
+        var geocoder = L.Control.geocoder({
+            defaultMarkGeocode: false
+        }).on('markgeocode', function(e) {
+            var latlng = e.geocode.center;
+            map.setView(latlng, 15);
+            if (marker) {
+                map.removeLayer(marker);
+            }
+            marker = L.marker(latlng).addTo(map);
+            document.getElementById('location').innerText = "Latitude: " + latlng.lat + ", Longitude: " + latlng.lng;
+        }).addTo(map);
+
+        document.getElementById('saveButton').addEventListener('click', function() {
+            if (marker) {
+                var latLng = marker.getLatLng();
+                document.getElementById('location').innerText = "Latitude: " + latLng.lat + ", Longitude: " + latLng.lng;
+
+                // Redirect back with latitude and longitude
+                var params = new URLSearchParams({
+                    latitude: latLng.lat,
+                    longitude: latLng.lng
+                });
+
+                if (window.opener) {
+                    // Redirecting to the 'sellbook.html' page with parameters
+                    window.opener.location.href = 'sellbook.html?' + params.toString();
+                    window.close();
+                } else {
+                    alert('The opener window is not available.');
+                }
+            } else {
+                alert("Please place a marker on the map first!");
+            }
+        });
+    </script>
+</body>
+</html>

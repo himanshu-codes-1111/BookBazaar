@@ -1,35 +1,63 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+    background-color: #D6CFC4; /* Beige header */
+    color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header h1 {
-    margin-bottom: 10px;
+/* Navigation Bar */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav a {
-    color: #fff;
-    margin: 0 15px;
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.platform-name {
+    margin-left: 5px; /* Space between logo and name */
+    font-size: 30px;
+    font-family: 'Kristen ITC', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: black;
     text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-right: 10px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.nav-links a i {
+    font-size: 25px;
+}
+
+.nav-links a:hover {
+    color: gray; /* Change color on hover */
 }
 
 main {
@@ -99,29 +127,25 @@ form button:hover {
 
 .book-item img {
     width: 100%;
-    height: auto;
+    height: 400px;
     object-fit: cover;
 }
 
 .book-item h3 {
     font-size: 1.2em;
     margin: 10px 0;
+    color: black;
+}
+
+.book-item-link {
+    text-decoration: none; /* Ensures links have no underline */
 }
 
 .book-item p {
     margin: 5px 0;
+    color: black;
 }
 
 .book-item:hover {
     transform: scale(1.05);
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }

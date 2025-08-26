@@ -3,46 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Book Bazar</title>
+    <title>Register - Book Bazaar</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
     <div class="registration-container">
         <div class="logo">
-            <img src="temporary-logo.png" alt="Book Bazar Logo">
+            <img src="assets/logo1.jpg" alt="Book Bazaar Logo">
         </div>
-        <h2>Register for Book Bazar</h2>
-        <form action="php/register.php" method="POST">
+        <h2>Register for Book Bazaar</h2>
+        <form action="php/register.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <textarea id="address" name="address" required></textarea>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="Enter valid Email" required>
             </div>
             <div class="form-group">
-                <label for="mobile">Mobile No.</label>
-                <input type="text" id="mobile" name="mobile" required>
+                <label for="phone_number">Mobile No.</label>
+                <input type="text" id="phone_number" name="phone_number" placeholder="Enter Mobile No.">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Enter User Address"></textarea>
             </div>
             <div class="form-group">
                 <label for="gender">Gender</label>
-                <input type="radio" id="male" name="gender" value="male" required> Male
-                <input type="radio" id="female" name="gender" value="female" required> Female
-                <input type="radio" id="other" name="gender" value="other" required> Other
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
             </div>
             <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-Enter Password" required>
             </div>
             <button type="submit">Register</button>
             <p id="error-message"></p>

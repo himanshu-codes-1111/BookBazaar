@@ -1,48 +1,74 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+    background-color: #D6CFC4; /* Beige header */
+    color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation Bar */
+nav {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header h1 {
-    margin-bottom: 10px;
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
-nav a {
-    color: #fff;
-    margin: 0 15px;
+.logo img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.platform-name {
+    margin-left: 5px; /* Space between logo and name */
+    font-size: 30px;
+    font-family: 'Kristen ITC', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: black;
     text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-right: 10px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.nav-links a i {
+    font-size: 25px;
+}
+
+.nav-links a:hover {
+    color: gray; /* Change color on hover */
 }
 
 main {
     flex: 1; /* Allows the main section to take up available space */
-    display: flex;
+    display: row;
     align-items: center;
     justify-content: center;
     padding: 20px;
     background-color: #f4f4f4;
+    
 }
 
 .book-details {
@@ -50,19 +76,52 @@ main {
     flex-direction: row;
     max-width: 1200px;
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; /* Ensure space between book details and seller info */
+    margin: 0 160px 30px;
+}
+
+.left-section {
+    width: 60%; /* Width for the image and thumbnails section */
+    position: relative; /* Ensure relative positioning to use absolute for thumbnails */
 }
 
 .book-img {
-    width: 50%;
+    width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures the image covers the container */
 }
+
+.thumbnails {
+    position: absolute;
+    bottom: 10px; /* Positioning at the bottom of the main image */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center; /* Center thumbnails horizontally */
+    gap: 10px; /* Space between thumbnail images */
+    /*background-color: rgba(255, 255, 255, 0.8); /* Optional: add a semi-transparent background */
+    /*padding: 5px 10px; /* Optional: add some padding around the thumbnails */
+    /*border-radius: 10px; /* Optional: rounded corners */
+}
+
+.thumbnails img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.thumbnails img:hover {
+    transform: scale(1.1) translateY(5px);
+}
+
 
 .book-info {
     width: 50%;
@@ -72,41 +131,206 @@ main {
     justify-content: center;
 }
 
-.book-info h2 {
-    margin-bottom: 10px;
+h2 {
+    font-size: 2.5em;
 }
 
-.book-info .author,
-.book-info .price {
-    margin: 5px 0;
+.author, .price, .description ,.condition ,.category {
+    font-size: 1.5em;
+    margin-bottom: 10px; /* Spacing between text elements */
 }
 
-.book-info .description {
-    margin: 20px 0;
-    flex: 1; /* Allows description to take up remaining space */
+.button-group {
+    margin-top: auto; /* Push buttons to the bottom of the book-info section */
+    display: flex;
+    justify-content: space-between;
 }
 
-.buy-button {
-    display: inline-block;
+.add-to-cart-button, .buy-button {
+    background-color: #4CAF50;
+    color: white;
     padding: 10px 15px;
-    background-color: #333;
-    color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    width: 43%; /* Adjust for layout */
     text-align: center;
-    font-weight: bold;
+}
+
+.add-to-cart-button, .buy-button {
+    background-color: black;
+}
+
+/* Popup Modal Styling */
+.popup-modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
+    height: 100%;
+    display: center;
+    margin-left: 40%;
+    margin-top: 20%;
 }
 
-.buy-button:hover {
-    background-color: #555;
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure close button is positioned inside this */
+    justify-content: center;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.popup-btn {
+    background-color:black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+.popup-btn:hover {
+    background-color: gray;
+}
+
+.close-popup {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Seller Info Section */
+.seller-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.seller-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.profile-picture img {
+    width: 100px; /* Approx. 3cm */
+    height: 100px; /* Approx. 3cm */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.seller-text p {
+    font-size: 1.2em;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* Other Books for Sale Section */
+.other-books {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.books-for-sale {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.book-item {
+    width: 150px;
+    text-align: center;
+}
+
+.book-item img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.book-item-link{
+    text-decoration: none;
+}
+.book-item p {
+    margin-top: 5px;
+    font-size: 1em;
+    color: black;
+}
+
+
+
+/* Fullscreen Modal Styling */
+.fullscreen-modal {
+    display: none;                 /* Hidden by default */
+    position: fixed;               /* Stay in place */
+    z-index: 9999;                 /* Sit on top */
+    padding-top: 60px;             /* Padding at the top */
+    left: 0;
+    top: 0;
+    width: 100%;                   /* Full width */
+    height: 100%;                  /* Full height */
+    overflow: auto;                /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+}
+
+.fullscreen-img {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 150%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Thumbnails Styling */
+.thumbnails img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.thumbnails img:hover {
+    transform: scale(1.1) translateY(5px);
+}
+
+
+/*footer {
+    background-color: #D6CFC4;
+    color: black;
     text-align: center;
     padding: 10px 0;
     width: 100%;
     bottom: 0;
-}
+}*/
