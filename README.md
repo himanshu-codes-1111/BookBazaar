@@ -12,7 +12,7 @@ Book Bazaar is an online marketplace that allows users to buy and sell second-ha
 - **Frontend Contribution:**  
   - HTML → 25%  
   - CSS → 25%  
-  - JavaScript → Remaining %  
+  - JavaScript → 2 %  
 - **Mission:** Promote sustainable reading with the slogan *“Readcycle – Read more, spend less.”*
 
 ---
